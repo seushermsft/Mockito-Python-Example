@@ -10,6 +10,10 @@ class Tester(object):
     def run(self, testingInstance, target):
         return testingInstance.doSomething(target)
 
+def plainFunction(url):
+    contents = urllib.request.urlopen(url).read()
+    return contents
+
 if __name__ == "__main__":
     content = Tester().run(Testing(), "target1")
     print(content)

@@ -53,6 +53,11 @@ class Test(unittest.TestCase):
         # Uncomment to cause a test failure due to calling with an unstubbed parameter
         #test.doSomething("five")
 
+        # Mock the plain method inside of main.py
+        expectedGoogleHtml = "<html>This Is Google</html>"
+        when(main).plainFunction("google.com").thenReturn(expectedGoogleHtml)
+        self.assertEqual(expectedGoogleHtml, main.plainFunction("google.com"))
+
         # remove all stubs - This may not be needed since we stub within a single function, but I haven't tested
         unstub()
 
