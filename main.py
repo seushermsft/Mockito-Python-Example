@@ -6,6 +6,10 @@ class Testing(object):
         contents = urllib.request.urlopen("http://google.com").read()
         return contents
 
+class Tester(object):
+    def run(self, testingInstance, target):
+        return testingInstance.doSomething(target)
+
 if __name__ == "__main__":
-    content = Testing().doSomething("target1")
+    content = Tester().run(Testing(), "target1")
     print(content)
